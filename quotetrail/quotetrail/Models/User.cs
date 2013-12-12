@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SQLite;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace quotetrail.Models
 {
@@ -22,7 +24,9 @@ namespace quotetrail.Models
         /// <returns>True if user exist and password is correct</returns>
         public bool IsValid(string _username)
         {
-            using (var cn = new SQLiteConnection(@"Data Source=C:\SQLite\Quotes.db; Version=3;")) 
+            System.IO.DirectoryInfo myDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string parentDirectory = myDirectory.Parent.FullName;
+            using (var cn = new SQLiteConnection(string.Format(@"Data Source={0}\db\Quotes.db; Version=3;", parentDirectory))) 
             {
                 string _sql = @"SELECT id FROM Users " + 
                        "WHERE Name = '"+_username+"';";
