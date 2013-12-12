@@ -1,0 +1,33 @@
+﻿@using System.Web.Mvc.Html
+@model quotetrail.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/css/common.css" rel="stylesheet" />
+}
+
+@using (Html.BeginForm())
+{
+    
+        <fieldset>
+            <div class="center">
+                <legend  class="signinheader">SignIn</legend>
+                <div class="editor-label">
+                    <br style="height: 20px"/>
+                    @Html.LabelFor(u => u.UserName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(u => u.UserName, new {@class = "roundtextfield"})
+                    @Html.ValidationMessageFor(u => u.UserName)
+                </div>
+
+                <div class="editor-label">
+                    @Html.CheckBoxFor(u => u.RememberMe)
+                    @Html.LabelFor(u => u.RememberMe)
+                </div>
+                <input type="submit" value="Log In" />
+                <div style="height: 10px"></div>
+                <div>@Html.ValidationMessage("")</div>
+            </div>
+        </fieldset>
+}
