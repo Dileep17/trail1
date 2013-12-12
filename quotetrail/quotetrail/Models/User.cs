@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
 using System.Data.SqlClient;
@@ -26,7 +27,7 @@ namespace quotetrail.Models
         {
             System.IO.DirectoryInfo myDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
             string parentDirectory = myDirectory.Parent.FullName;
-            using (var cn = new SQLiteConnection(string.Format(@"Data Source={0}\db\Quotes.db; Version=3;", parentDirectory))) 
+            using (var cn = new SQLiteConnection(string.Format(@"Data Source={0}{1} Version=3;", parentDirectory, ConfigurationManager.ConnectionStrings["connectionstring"].ConnectionString))) 
             {
                 string _sql = @"SELECT id FROM Users " + 
                        "WHERE Name = '"+_username+"';";
