@@ -14,7 +14,7 @@ namespace quotetrail.Models
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-        [Display(Name = "Remember on this computer")]
+        [Display(Name = "Remember me")]
         public bool RememberMe { get; set; }
         
         /// <summary>

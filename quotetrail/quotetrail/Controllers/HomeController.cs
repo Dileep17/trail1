@@ -23,6 +23,10 @@ namespace quotetrail.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+                {
+                    return RedirectToAction("Home", "Home");
+                }
             return View();
         }
 
@@ -32,10 +36,6 @@ namespace quotetrail.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (HttpContext.User.Identity.IsAuthenticated)
-                {
-                    return View(returnUrl);
-                }
                 if (User.IsValid(User.UserName))
                 {
                     FormsAuthentication.SetAuthCookie(User.UserName, User.RememberMe);

@@ -9,23 +9,20 @@
 @using (Html.BeginForm())
 {
     
-        <fieldset>
+        <fieldset class="login">
             <div class="center">
                 <legend  class="signinheader">SignIn</legend>
-                <div class="editor-label">
-                    <br style="height: 20px"/>
-                    @Html.LabelFor(u => u.UserName)
-                </div>
-                <div class="editor-field">
+                <div>
+                    <strong class="text"> Username</strong>
                     @Html.TextBoxFor(u => u.UserName, new {@class = "roundtextfield"})
                     @Html.ValidationMessageFor(u => u.UserName)
+                    <div style="padding-top: 15px;">
+                        <input type="submit" value="Log In" class="button"/>
+                        @Html.CheckBoxFor(u => u.RememberMe)
+                        @Html.LabelFor(u => u.RememberMe)
+                    </div>
                 </div>
-
-                <div class="editor-label">
-                    @Html.CheckBoxFor(u => u.RememberMe)
-                    @Html.LabelFor(u => u.RememberMe)
-                </div>
-                <input type="submit" value="Log In" />
+                
                 <div style="height: 10px"></div>
                 <div>@Html.ValidationMessage("")</div>
             </div>

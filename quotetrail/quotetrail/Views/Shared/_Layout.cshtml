@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <script src="~/Scripts/jquery-2.0.3.min.js"></script>
+    <link href="~/Content/css/common.css" rel="stylesheet" />
+    <style type="text/css">.header { }</style>
 </head>
     <body>
         
-        <div style="width: auto;text-align: right">
             @if (User.Identity.IsAuthenticated)
             {
-                <div >
-                    <strong>@Html.Encode(User.Identity.Name)</strong>
-                    @Html.ActionLink("Sign Out", "Logout", "Home")
+                <div class ="banner">
+                    <div class="signout">
+                        <strong style="text-align: center">Hey, @Html.Encode(User.Identity.Name) </strong>
+                        @Html.ActionLink("Sign Out", "Logout", "Home",new {@class = "button"})
+                    </div>
                 </div>
             }
-        </div>
  
         @RenderBody()
  
