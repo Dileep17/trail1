@@ -1,28 +1,30 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <script src="~/Scripts/jquery-2.0.3.min.js"></script>
-    <link href="~/Content/css/common.css" rel="stylesheet" />
-    <style type="text/css">.header { }</style>
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+        @Styles.Render("~/bundles/css")
+    
+    </head>
     <body>
         
-            @if (User.Identity.IsAuthenticated)
-            {
-                <div class ="banner">
-                    <div class="signout">
-                        <strong style="text-align: center">Hey, @Html.Encode(User.Identity.Name) </strong>
-                        @Html.ActionLink("Sign Out", "Logout", "Home",new {@class = "button"})
-                    </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class ="banner">
+                <div class="signout">
+                    <strong style="text-align: center">Hey, @Html.Encode(User.Identity.Name) </strong>
+                    @Html.ActionLink("Sign Out", "Logout", "Home",new {@class = "button"})
                 </div>
-            }
+            </div>
+        }
  
         @RenderBody()
  
-   
+        @*        @Scripts.Render("~/bundles/jquery")*@
         @RenderSection("scripts", required: false)
     </body>
 </html>
+
+@*@Ajax.ActionLink()*@

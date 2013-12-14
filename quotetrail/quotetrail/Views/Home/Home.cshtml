@@ -1,23 +1,28 @@
 ﻿@using System.Web.Mvc.Html
+@using System.Web.Optimization
 @model quotetrail.Models.Quote
 @{
     ViewBag.Title = "Quotes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/css/common.css" rel="stylesheet" />
-<script src="~/Scripts/jquery-2.0.3.min.js"></script>
 @{
     <div class="clearfix">
         <div class="wrapper">
             <div class="viewquote">
                 <div class="centerbox">
-                    <select  name="faculty">
-                        <option value="AC">A</option>
-                        <option value="AD">B</option>
-                        <option value="AM">C</option>
-                        <option value="AP">D</option>
-                    </select>
-                    
+                    <div class="banner">
+                        <div><strong style="color: green; text-align: center; top:5px; font-size: 18px;"> View Quotes</strong></div>
+                        <span style="padding-left: 20px; position:relative">
+                            <strong class="text"> Choose Project</strong>
+                            <select  name="faculty">
+                                <option> Select Project</option>
+                                <option value="AC">A</option>
+                                <option value="AD">B</option>
+                                <option value="AM">C</option>
+                                <option value="AP">D</option>
+                            </select>
+                        </span>
+                    </div>
                      
                 </div>
             </div>
@@ -42,8 +47,7 @@
                         <input type="submit" name="AddQuote" value="Add Quote" class ="button"/>    
                     </div>
                 </div>
-            </div>
-            
+            </div>  
         </div>
     </div>
 }
