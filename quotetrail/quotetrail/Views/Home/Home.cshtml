@@ -1,6 +1,5 @@
 ﻿@using System.Web.Mvc.Html
 @using System.Web.Optimization
-@model quotetrail.Models.Quote
 @{
     ViewBag.Title = "Quotes";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,43 +8,11 @@
     <div class="clearfix">
         <div class="wrapper">
             <div class="viewquote">
-                <div class="centerbox">
-                    <div class="banner">
-                        <div><strong style="color: green; text-align: center; top:5px; font-size: 18px;"> View Quotes</strong></div>
-                        <span style="padding-left: 20px; position:relative">
-                            <strong class="text"> Choose Project</strong>
-                            <select  name="faculty">
-                                <option> Select Project</option>
-                                <option value="AC">A</option>
-                                <option value="AD">B</option>
-                                <option value="AM">C</option>
-                                <option value="AP">D</option>
-                            </select>
-                        </span>
-                    </div>
-                     
-                </div>
+                @Html.Partial("ViewQuotes")
             </div>
-            <div class="addquote">
+            <div class="addquote" id="AddQuote">
                 <div style="top: 20px; position: relative">
-                    <div >
-                        <strong class="text">Project Name</strong>
-                        @Html.TextBoxFor(quote => quote.ProjectName,new {@class="roundtextfield"})
-                        @Html.ValidationMessageFor(quote => quote.ProjectName)
-                    </div>
-                    <div>
-                        <strong class="text">Quote By</strong>
-                        @Html.TextBoxFor(quote => quote.QuoteBy,new {@class = "roundtextfield"})
-                        @Html.ValidationMessageFor(quote => quote.QuoteBy)
-                    </div>
-                    <div>
-                        <strong class ="text"> Quote</strong>
-                        @Html.TextAreaFor(quote => quote.Quotestring,new {@class = "roundtextfield"})
-                        @Html.ValidationMessageFor(quote => quote.Quotestring)
-                    </div>
-                    <div style="padding-top: 10px;">
-                        <input type="submit" name="AddQuote" value="Add Quote" class ="button"/>    
-                    </div>
+                      @Html.Partial("AddQuote")
                 </div>
             </div>  
         </div>

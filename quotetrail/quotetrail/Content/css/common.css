@@ -24,15 +24,22 @@ legend {
     padding: 3px 4px; 
     margin: 2px 0 0;
     width: 100%;
+    
 }
 
 .addquote textarea {
     height: 100px;
     width: 100%;
     max-width: 265px;
+    min-height: 180px;
+    max-height: 180px;
 }
 
-
+.errorText {
+    color: red;
+     font-weight: normal;
+    font-size: 13px;
+}
 
 input {
     -moz-border-bottom-colors: none;

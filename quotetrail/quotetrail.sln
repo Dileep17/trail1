@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quotetrail", "quotetrail\qu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quotetrail.Tests", "quotetrail.Tests\quotetrail.Tests.csproj", "{7C55DD6D-1269-42B8-AD3B-6F141F667CA9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6C9A421B-9F7A-4E71-9BA4-8EEBA18B4FAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

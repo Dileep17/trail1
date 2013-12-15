@@ -1,4 +1,0 @@
-﻿
-$(document).onload(function() {
-    
-});

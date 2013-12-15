@@ -1,0 +1,36 @@
+﻿
+@using quotetrail.Models
+@model quotetrail.Models.Quote
+
+
+@*method ="POST" action="@Url.Action("AddQuote")" data-quotes-ajax="true" data-quotes-target="#AddQuote"*@
+
+@using (Ajax.BeginForm("AddQuote", "home",new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "AddQuote" }))
+{
+    
+        if (!Object.ReferenceEquals(null, Model))
+        {
+            var msg = Model.Status.Equals("added") ? "Added successfully." : "Oops!! This is embrassing, failed to add the Quote please try again.";
+            @Html.Raw("<p><strong class='text'>"+msg +"</strong></p>")
+        }
+
+        <div >
+            <strong class="text">Project Name</strong>
+            @Html.TextBoxFor(quote => quote.ProjectName,new {@class="roundtextfield"})
+            @Html.ValidationMessageFor(quote => quote.ProjectName,string.Empty,new {@class = "errorText"})
+        </div>
+        <div>
+            <strong class="text">Quote By</strong>
+            @Html.TextBoxFor(quote => quote.QuoteBy,new {@class = "roundtextfield"})
+            @Html.ValidationMessageFor(quote => quote.QuoteBy,string.Empty,new {@class = "errorText"})
+        </div>
+        <div>
+            <strong class ="text"> Quote</strong>
+            @Html.TextAreaFor(quote => quote.Quotestring, new { @class = "roundtextfield" })
+            @Html.ValidationMessageFor(quote => quote.Quotestring,string.Empty,new {@class = "errorText"})
+        </div>
+
+        <div style="padding-top: 10px;">
+            <input type="submit" name="AddQuotesubmit" value="Add Quote" class ="button" id="AddQuotesubmit"/>    
+        </div>
+}

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using quotetrail.Models;
 
 
 namespace quotetrail.Controllers
@@ -15,8 +16,16 @@ namespace quotetrail.Controllers
         [Authorize]
         public ActionResult Home()
         {
-
             return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddQuote(Models.Quote quote)
+        {
+            quote.User = User.Identity.Name;
+            quote.Status = quote.AddQuote() ? "added" : "failed";
+            return PartialView("AddQuote", quote);
         }
 
         [HttpGet]
@@ -56,5 +65,13 @@ namespace quotetrail.Controllers
             return RedirectToAction("Login", "Home");
         }
 
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult GetProjects()
+        {
+            var projectsList = new List<string> {"Abcam", "Pam", "Blue Label", "sathyam"};
+            var x = Json(projectsList);
+            return x;
+        }
     }
 }

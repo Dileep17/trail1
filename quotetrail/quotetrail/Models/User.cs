@@ -17,12 +17,6 @@ namespace quotetrail.Models
         [Display(Name = "Remember me")]
         public bool RememberMe { get; set; }
         
-        /// <summary>
-        /// Checks if user with given password exists in the database
-        /// </summary>
-        /// <param name="_username">User name</param>
-        /// <param name="_password">User password</param>
-        /// <returns>True if user exist and password is correct</returns>
         public bool IsValid(string _username)
         {
             System.IO.DirectoryInfo myDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
