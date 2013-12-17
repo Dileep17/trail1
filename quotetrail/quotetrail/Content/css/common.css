@@ -36,9 +36,12 @@ legend {
 }
 
 .errorText {
+    position: relative;
+    top: 5px;
     color: red;
      font-weight: normal;
     font-size: 13px;
+
 }
 
 input {
@@ -185,3 +188,7 @@ button a {
     top: 18px;   
     text-align: right; 
 }
+
+
+tr:nth-child(even) { background: #CCC;color: black;font-size: 23px;width: 100%;font-style: italic}
+tr:nth-child(odd) { background: #FFF;color: black;font-size: 23px;width: 100%;font-style: italic}
